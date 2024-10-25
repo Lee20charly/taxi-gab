@@ -1,40 +1,37 @@
 import React from 'react';
-import { View, Text, TextInput, Button, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const TaxiAppMockup = () => {
+const TaxiApp = () => {
   return (
     <View style={styles.container}>
-      {/* Top Search Bar */}
-      <View style={styles.searchBar}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Where to?"
-        />
-        <Button title="Now" onPress={() => {}} />
-        <View style={styles.profileIcon}></View>
+      <view style={styles.top}>
+      <Image source={require('@/assets/images/image 5 (1).svg')} style={styles.logo_top} />
+      <text> hello </text>
+      </view>
+      {/* Header Section with Image */}
+      <View style={styles.header}>
+      <Image source={require('@/assets/images/image 15.svg')} style={styles.headerImage} />
+        <Text style={styles.headerText}>
+          Déplacez-vous en toute sécurité quelque soit votre budget.
+        </Text>
+      </View>
+      
+      {/* Map Placeholder */}
+      <View style={styles.mapContainer}>
+        <Text style={styles.mapPlaceholder}>Muhammadiyah Malang</Text>
       </View>
 
-      {/* App Logo */}
-      <Text style={styles.logoText}>havleecrow</Text>
+      {/* Destination Input */}
+      <TextInput
+        style={styles.input}
+        placeholder="Où va-t-on ?"
+        placeholderTextColor="#888"
+      />
 
-      {/* Navigation */}
-      <View style={styles.navMenu}>
-        <Button title="Home" onPress={() => {}} />
-        <Button title="Shop" onPress={() => {}} />
-        <Button title="Office" onPress={() => {}} />
-      </View>
-
-      {/* Taxi Service Section */}
-      <View style={styles.taxiSection}>
-        <Image source={{ uri: 'taxi_logo_url' }} style={styles.taxiLogo} />
-        <Image source={{ uri: 'driver_image_url' }} style={styles.driverImage} />
-      </View>
-
-      {/* Nature Loves Blu Section */}
-      <View style={styles.natureSection}>
-        <Text style={styles.natureText}>Nature loves blu!</Text>
-        <Image source={{ uri: 'car_park_image_url' }} style={styles.carImage} />
-      </View>
+      {/* Button */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Commander</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -42,73 +39,75 @@ const TaxiAppMockup = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     padding: 20,
-  },
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#e8f5e9',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 20,
-  },
-  searchInput: {
-    flex: 1,
-    padding: 8,
     backgroundColor: '#fff',
-    borderRadius: 5,
-    marginRight: 10,
   },
-  profileIcon: {
-    width: 40,
-    height: 40,
-    backgroundColor: '#ddd',
-    borderRadius: 20,
-  },
-  logoText: {
-    textAlign: 'center',
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#00bfa5',
+
+  top: {
+    alignItems: 'center',
+    justifyContent:'center',
+    flexDirection:'row',
+    backgroundColor: '#0000f',
+    padding: 2,
+    marginBottom: 4,
+    width: 100,
+    height: 75,
+    },
+
+  header: {
+    alignItems: 'center',
     marginBottom: 20,
   },
-  navMenu: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
+
+  logo_top:{
+    
+      width:'100%',
+      height: 57,
+      marginBottom: 10,
+
   },
-  taxiSection: {
-    backgroundColor: '#f1f8e9',
-    padding: 15,
+  headerImage: {
+    width: '100%',
+    height: 200,
     borderRadius: 10,
+    marginBottom: 10,
+  },
+  headerText: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#333',
+  },
+  mapContainer: {
+    height: 200,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
   },
-  taxiLogo: {
-    width: 80,
-    height: 80,
-    marginBottom: 10,
+  mapPlaceholder: {
+    fontSize: 18,
+    color: '#333',
   },
-  driverImage: {
-    width: '100%',
-    height: 100,
-    resizeMode: 'contain',
+  input: {
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    marginBottom: 20,
+    color: '#333',
   },
-  natureSection: {
+  button: {
+    height: 50,
+    backgroundColor: '#4CAF50',
+    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 10,
   },
-  natureText: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#00bfa5',
-    marginBottom: 10,
-  },
-  carImage: {
-    width: '100%',
-    height: 150,
-    resizeMode: 'contain',
+  buttonText: {
+    fontSize: 18,
+    color: '#fff',
   },
 });
 
-export default TaxiAppMockup;
+export default TaxiApp;

@@ -1,70 +1,38 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, Image } from 'react-native';
-import { Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons'; // Assurez-vous d'avoir installé react-native-vector-icons ou expo
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const App = () => {
+const NoOrdersScreen = () => {
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>Book a cab</Text>
-        <TouchableOpacity>
-          <Ionicons name="ios-search" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
-
-      {/* Location Input */}
-      <View style={styles.locationInput}>
-        <View style={styles.inputWrapper}>
-          <FontAwesome5 name="map-marker-alt" size={20} color="#FFD700" />
-          <TextInput
-            style={styles.input}
-            placeholder="1720, Sec 67, Hariyali road..."
-            placeholderTextColor="#FFD700"
-          />
-        </View>
-        <TouchableOpacity>
-          <MaterialIcons name="edit-location" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
-
-      {/* Destination Input */}
-      <View style={styles.destinationInput}>
-        <TextInput
-          style={styles.destinationTextInput}
-          placeholder="Where to ?"
-          placeholderTextColor="#7a7a7a"
+      {/* Central Icon and Text */}
+      <View style={styles.content}>
+        {/* Replace with an appropriate image */}
+        <Image 
+          source={{ uri: 'https://via.placeholder.com/100' }} // Placeholder icon
+          style={styles.icon}
         />
-        <TouchableOpacity style={styles.plusButton}>
-          <Ionicons name="ios-add" size={24} color="blue" />
-        </TouchableOpacity>
+        <Text style={styles.title}>Aucune commande passée</Text>
+        <Text style={styles.description}>
+          Sélectionnez votre adresse de départ et destination, et déplacez 
+          vous en toute sécurité quelque soit votre budget
+        </Text>
       </View>
 
-      {/* Categories */}
-      <View style={styles.categories}>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryText}>Home</Text>
+      {/* Bottom Tab Navigation Placeholder */}
+      <View style={styles.bottomTab}>
+        <TouchableOpacity style={styles.tabButton}>
+          <Text style={styles.tabText}>Accueil</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryText}>Shop</Text>
+        <TouchableOpacity style={styles.tabButton}>
+          <Text style={styles.tabText}>Aide</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryButton}>
-          <Text style={styles.categoryText}>Office</Text>
+        <TouchableOpacity style={styles.tabButton}>
+          <Text style={[styles.tabText, styles.activeTabText]}>Récent</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.tabButton}>
+          <Text style={styles.tabText}>Paramètres</Text>
         </TouchableOpacity>
       </View>
-
-      {/* List of Locations */}
-      <ScrollView style={styles.locationList}>
-        {Array(10).fill(0).map((_, index) => (
-          <View key={index} style={styles.locationItem}>
-            <Ionicons name="ios-time" size={24} color="#7a7a7a" />
-            <View style={styles.locationInfo}>
-              <Text style={styles.locationTitle}>Huda Metro Station</Text>
-              <Text style={styles.locationSubtitle}>Huda city Center metro, Sec 24, Gurgaon</Text>
-            </View>
-          </View>
-        ))}
-      </ScrollView>
     </View>
   );
 };
@@ -72,92 +40,51 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
+    justifyContent: 'space-between',
+    backgroundColor: '#A5D6A7', // Light green background
     padding: 20,
   },
-  header: {
-    backgroundColor: '#28a745',
-    padding: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  content: {
     alignItems: 'center',
-    borderRadius: 10,
+    justifyContent: 'center',
+    flex: 1,
   },
-  headerTitle: {
-    color: 'white',
+  icon: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 10,
   },
-  locationInput: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFCF50',
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 10,
-    justifyContent: 'space-between',
-  },
-  inputWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  input: {
-    marginLeft: 10,
-    color: '#fff',
-  },
-  destinationInput: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 10,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    justifyContent: 'space-between',
-  },
-  destinationTextInput: {
-    flex: 1,
-    color: '#000',
-  },
-  plusButton: {
-    padding: 10,
-  },
-  categories: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#28a745',
-    padding: 10,
-    borderRadius: 10,
-    marginVertical: 10,
-  },
-  categoryButton: {
-    padding: 10,
-  },
-  categoryText: {
-    color: '#fff',
-  },
-  locationList: {
-    marginTop: 10,
-  },
-  locationItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 15,
-    backgroundColor: '#fff',
-    marginVertical: 5,
-    borderRadius: 10,
-  },
-  locationInfo: {
-    marginLeft: 10,
-  },
-  locationTitle: {
+  description: {
     fontSize: 16,
-    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#555',
+    paddingHorizontal: 30,
   },
-  locationSubtitle: {
-    fontSize: 14,
-    color: '#7a7a7a',
+  bottomTab: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#ddd',
+  },
+  tabButton: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  tabText: {
+    fontSize: 12,
+    color: '#999',
+  },
+  activeTabText: {
+    color: '#000',
   },
 });
 
-export default App;
+export default NoOrdersScreen;
