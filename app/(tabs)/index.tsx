@@ -1,83 +1,21 @@
-import React, { useState } from 'react';
-import { View, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+// App.tsx
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './login'; // Mettez à jour le chemin
+import CreateAccount from './CreateAccountScreen'; // Assurez-vous d'importer correctement ce composant
 
-const LoginScreen = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Stack = createStackNavigator();
 
-
-  const image = { uri: "@/assets/images/group 8915.svg" };  
-
+const App = () => {
   return (
-    <View style={styles.container}>
-        <ImageBackground source={image} style={styles.image}></ImageBackground>
-      <Image source={require('@/assets/images/image 3.png')} style={styles.logo} />
 
-      <Text style={styles.title}>Se connecté</Text>
-
-      <TextInput
-          style={styles.input}
-        placeholder="nom, ms utilisateur"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="maux de passe"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign in</Text>
-      </TouchableOpacity>
-    </View>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Connexion" component={LoginScreen} />
+        <Stack.Screen name="CreateAccount" component={CreateAccount} />
+      </Stack.Navigator>
+   
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ffff',
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
-  },
-  title: {
-    fontSize: 18,
-    marginBottom: 20,
-  },
-
-  image:{
-    width:100,
-    height:100,
-  },
-
-  input: {
-    width: '80%',
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 5,
-    backgroundColor: '#66BB6A',
-    color: '#fff',
-  },
-  button: {
-    width: '80%',
-    padding: 15,
-    backgroundColor: '#000',
-    borderRadius: 5,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-});
-
-export default LoginScreen;
+export default App;
