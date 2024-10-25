@@ -8,7 +8,7 @@ const SignUpScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Image source={require('./path-to-logo.png')} style={styles.logo} /> */}
+      <Image source={require('@/assets/images/image 3.png')} style={styles.logo} />
       <Text style={styles.title}>s'Inscrire</Text>
 
       <View style={styles.row}>
