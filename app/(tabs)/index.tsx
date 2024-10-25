@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+
+  const image = { uri: "@/assets/images/group 8915.svg" };  
+
   return (
     <View style={styles.container}>
+        <ImageBackground source={image} style={styles.image}></ImageBackground>
       <Image source={require('@/assets/images/image 3.png')} style={styles.logo} />
 
       <Text style={styles.title}>Se connecté</Text>
@@ -48,6 +52,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
   },
+
+  image:{
+    width:100,
+    height:100,
+  },
+
   input: {
     width: '80%',
     padding: 10,
