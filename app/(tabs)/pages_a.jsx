@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet, Image } from 'react-native';
+
 import { Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons'; // Assurez-vous d'avoir installé react-native-vector-icons ou expo
 
 const App = () => {
