@@ -27,7 +27,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
       <TextInput
         style={styles.input}
-        placeholder="nom d'utilisateur"
+        placeholder="Mail"
         value={username}
         onChangeText={setUsername}
       />

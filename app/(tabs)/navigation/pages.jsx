@@ -4,10 +4,10 @@ import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'reac
 const TaxiApp = () => {
   return (
     <View style={styles.container}>
-      <view style={styles.top}>
+      <View style={styles.top}>
       <Image source={require('@/assets/images/image 5 (1).svg')} style={styles.logo_top} />
-      <text> hello </text>
-      </view>
+      {/*<Text> hello </Text> */}
+      </View>
       {/* Header Section with Image */}
       <View style={styles.header}>
       <Image source={require('@/assets/images/image 15.svg')} style={styles.headerImage} />
@@ -18,7 +18,7 @@ const TaxiApp = () => {
       
       {/* Map Placeholder */}
       <View style={styles.mapContainer}>
-        <Text style={styles.mapPlaceholder}>Muhammadiyah Malang</Text>
+        <Text style={styles.mapPlaceholder}>Carrefour Bambochine</Text>
       </View>
 
       {/* Destination Input */}
